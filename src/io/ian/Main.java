@@ -32,6 +32,7 @@ public class Main {
                 "Very doubtful"
         };
 
+        label:
         while (true) {
             Random rng = new Random();
             Scanner scanner = new Scanner(System.in);
@@ -40,15 +41,17 @@ public class Main {
             String response = predictions[responseIndex];
 
 
-            if (userInput.equals("")) {
-                System.out.println("Please enter a question");
-            }
-            else if (userInput.equals("done")) {
-                System.out.println("cya fam");
-                break;
-            } else {
-                System.out.println(userInput);
-                System.out.println(response);
+            switch (userInput) {
+                case "":
+                    System.out.println("Please enter a question");
+                    break;
+                case "done":
+                    System.out.println("cya fam");
+                    break label;
+                default:
+                    System.out.println(userInput);
+                    System.out.println(response);
+                    break;
             }
         }
     }
